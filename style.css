@@ -11,7 +11,7 @@ body, html {
   
   /* Header */
   header {
-    background: #1900ff7a;
+    background: #ADD8E6;
     padding: 20px;
     color: white;
     font-family: Arial, sans-serif;
@@ -35,9 +35,9 @@ body, html {
   .filter-container select {
     color: white;
     padding: 5px;
-    background-color: #1900ff5e;
+    background-color: #add8e6c2;
     font-size: 1rem;
-    border: 2px solid transparent;
+    border: 2px solid white;
     border-radius: 8px;
     outline: none;
   }
@@ -56,7 +56,7 @@ body, html {
     z-index: 1000;
     font-family: Arial, sans-serif;
     transition: transform 0.3s ease;
-    border: 6px solid #1900ff5e;
+    border: 6px solid #ADD8E6;
     border-radius: 4px;
     margin-right: 0;
 
@@ -115,7 +115,7 @@ body, html {
   
   /* Footer */
   .sidebar-footer {
-    margin-top: 2rem;
+   
     font-size: 0.9rem;
     color: #444;
     text-align: center;
@@ -171,4 +171,7 @@ body, html {
       height: 250px;   /* adjust height for smaller devices */
       max-width: 100%;
     }
+  }
+  .black{
+    color: black;
   }
