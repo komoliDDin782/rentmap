@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Renting House</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <h1>Renting House</h1>
+      <div class="filter-container">
+        <label for="filter">Filter: </label>
+        <select id="filter">
+          <option value="all">Xammasi</option>
+          <option value="living">Yashash uchun</option>
+          <option value="work">Ishlash uchun</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="hidden">
+    <button id="closeBtn">✖</button>
+    <div class="house-card">
+      <div id="imageGallery" class="image-gallery"></div>
+
+      <div class="house-details">
+        <h2 id="houseName"></h2>
+        <p id="houseDescription"></p>
+        <p><strong>📍 Location:</strong> <span id="houseLocation"></span></p>
+        <p><strong>☎️ Phone:</strong> <span id="housePhone"></span></p>
+        <p><strong>🛏️ Rooms:</strong> <span id="houseRooms"></span></p>
+        <p><strong>💰 Price:</strong> <span id="housePrice"></span></p>
+      </div>
+    </div>
+
+
+    <footer class="sidebar-footer">
+      <hr />
+      <p style="margin-top: 10px;">
+        📢 For advertisements: <br />
+        <strong>Samatov Kamron</strong><br />
+        📞 <a href="tel:+998937824040">+998 93 782 40 40 </a><br />
+        💬 <a href="https://t.me/Gen11us" target="_blank">Telegram: @Gen11us</a>
+      </p>
+    </footer>
+
+
+
+  </div>
+    <!-- loading -->
+  <div id="loading" class="loading">Loading houses...</div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
