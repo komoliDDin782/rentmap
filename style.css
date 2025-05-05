@@ -150,3 +150,25 @@ body, html {
     font-size: 1rem;
     color: #333;
   }
+  @media (max-width: 600px) {
+    #sidebar {
+      width: 90vw;
+      padding: 0.8rem;
+    }
+    .image-gallery img {
+      height: 250px;   /* adjust height for smaller devices */
+      max-width: 100%;
+    }
+
+  }
+  
+  @media (max-width: 400px) {
+    #sidebar {
+      width: 92vw;
+      padding: 0.6rem;
+    }
+    .image-gallery img {
+      height: 250px;   /* adjust height for smaller devices */
+      max-width: 100%;
+    }
+  }
