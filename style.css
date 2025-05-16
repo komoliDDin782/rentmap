@@ -1,23 +1,41 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* ❗️ Prevent scrolling */
+}
+* {
+  box-sizing: border-box;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+  #map.full-height {
+    height: 100vh !important;
   }
   
-  #map {
-    height: 85vh;
-    width: 99vw;
-  }
   
   /* Header */
   header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #071739;
     padding: 20px;
     color: #E3C39D;
     font-family: Arial, sans-serif;
     text-align: center;
+    z-index: 1002; /* higher than the map and sidebar */
   }
+  
   
   .header-content h1 {
     margin: 0;
@@ -44,24 +62,27 @@ body, html {
   }
   
   /* Sidebar */
-  #sidebar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 350px;
-    height: 100vh;
-    background: #f9f9f9;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    overflow-y: auto;
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    transition: transform 0.3s ease;
-    border: 6px solid  #071739;
-    border-radius: 4px;
-    margin-right: 0;
+#sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background: #f9f9f9;
+  overflow-y: auto;
+  z-index: 1005;
+  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  border-left: 6px solid #071739;
+  border-radius: 0;
+  margin: 0;         /* ✅ Remove margin if any */
+}
 
+  
+  #sidebar.hidden {
+    display: none;
   }
+  
   
   #sidebar.hidden {
     display: none;

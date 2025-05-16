@@ -3,13 +3,13 @@ const map = L.map('map', {
   zoomControl: false
 });
 
-// Locate the user and center the map (only once, not continuously)
+// Locate the user and center the map (only once)
 map.locate({
   setView: true,
   maxZoom: 12,
   zoom: 10,
   enableHighAccuracy: true,
-  watch: false  // Disable continuous tracking of the user's location
+  watch: false
 });
 
 // Fallback location if geolocation fails
@@ -23,10 +23,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 let allHouses = [];
-
-// Fetch house data
 const loading = document.getElementById('loading');
 
+// Load house data from JSON
 fetch('houses.json')
   .then(response => response.json())
   .then(houses => {
@@ -47,8 +46,9 @@ function displayHouses(houses) {
   });
 }
 
-// Show selected house details in sidebar
+// Show house details in sidebar
 function showSidebar(house) {
+  // Fill in house details
   document.getElementById('houseName').innerText = house.name;
   document.getElementById('houseDescription').innerText = house.description;
   document.getElementById('houseLocation').innerText = house.location;
@@ -56,6 +56,7 @@ function showSidebar(house) {
   document.getElementById('houseRooms').innerText = house.rooms;
   document.getElementById('housePrice').innerText = house.price;
 
+  // Load images
   const gallery = document.getElementById('imageGallery');
   gallery.innerHTML = "";
   house.images.forEach(src => {
@@ -65,40 +66,22 @@ function showSidebar(house) {
     gallery.appendChild(img);
   });
 
+  // Show sidebar and expand map height
   document.getElementById('sidebar').classList.remove('hidden');
+  document.getElementById('map').classList.add('full-height');
 }
 
 // Close sidebar button
 document.getElementById('closeBtn').addEventListener('click', () => {
   document.getElementById('sidebar').classList.add('hidden');
+  document.getElementById('map').classList.remove('full-height');
 });
 
-// Filter houses by type
-document.getElementById('filter').addEventListener('change', (e) => {
-  const filterValue = e.target.value;
-  const filteredHouses = filterValue === 'all'
-    ? allHouses
-    : allHouses.filter(house => house.type === filterValue);
-
-  // Remove existing markers
-  map.eachLayer(layer => {
-    if (layer instanceof L.Marker) {
-      map.removeLayer(layer);
-    }
-  });
-
-  // Re-add tile layer (since it's removed with markers)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  displayHouses(filteredHouses);
-});
-
-// Close sidebar when clicking on the map (but not on a marker)
-map.on('click', function (e) {
+// Close sidebar on map click (but not on markers)
+map.on('click', () => {
   const sidebar = document.getElementById('sidebar');
   if (!sidebar.classList.contains('hidden')) {
     sidebar.classList.add('hidden');
+    document.getElementById('map').classList.remove('full-height');
   }
 });
