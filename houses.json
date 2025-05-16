@@ -33,6 +33,24 @@
     "price": "4 928 904 сум",
     "type": "living",
     "id": "11113"
+  },
+  {
+    "name": "Samarqand kvartira",
+    "lat": 39.647578,
+    "lng": 66.971866,
+    "images": [
+      "samarqand/house2/sam1.jpg",
+      "samarqand/house2/sam2.jpg",
+      "samarqand/house2/sam3.jpg",
+      "samarqand/house2/sam4.jpg"
+    ],
+    "description": "Kvartirada bor: Telefon, Kabelli TV, Internet, Konditsioner, Balkon, Televizor, Oshxona, Muzlatkich, Kir yuvish mashinasi",
+    "location": "So'g'diyonada Obid samsasi qarshisida.",
+    "phone": "+998 90 454 42 47",
+    "rooms": "2",
+    "price": "4 928 904 сум",
+    "type": "living",
+    "id": "11113"
   }
 
 
