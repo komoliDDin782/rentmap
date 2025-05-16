@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    
   }
   
   #map {
@@ -11,9 +12,9 @@ body, html {
   
   /* Header */
   header {
-    background: #1900ff7a;
+    background: #071739;
     padding: 20px;
-    color: white;
+    color: #E3C39D;
     font-family: Arial, sans-serif;
     text-align: center;
   }
@@ -33,11 +34,11 @@ body, html {
   }
   
   .filter-container select {
-    color: white;
+    color:#E3C39D;
     padding: 5px;
-    background-color: #1900ff5e;
+    background-color: #071739;
     font-size: 1rem;
-    border: 2px solid transparent;
+    border: 2px solid #E3C39D;
     border-radius: 8px;
     outline: none;
   }
@@ -48,7 +49,7 @@ body, html {
     top: 0;
     right: 0;
     width: 350px;
-    height: 100%;
+    height: 100vh;
     background: #f9f9f9;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
@@ -56,7 +57,7 @@ body, html {
     z-index: 1000;
     font-family: Arial, sans-serif;
     transition: transform 0.3s ease;
-    border: 6px solid #1900ff5e;
+    border: 6px solid  #071739;
     border-radius: 4px;
     margin-right: 0;
 
@@ -115,7 +116,7 @@ body, html {
   
   /* Footer */
   .sidebar-footer {
-    margin-top: 2rem;
+   
     font-size: 0.9rem;
     color: #444;
     text-align: center;
@@ -172,3 +173,4 @@ body, html {
       max-width: 100%;
     }
   }
+
