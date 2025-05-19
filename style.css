@@ -28,9 +28,9 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #071739;
+    background: #0f3485;
     padding: 20px;
-    color: #E3C39D;
+    color: #ffffffd5;
     font-family: Arial, sans-serif;
     text-align: center;
     z-index: 1002; /* higher than the map and sidebar */
