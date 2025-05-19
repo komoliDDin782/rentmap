@@ -37,18 +37,9 @@ html, body {
   }
   
   
-  .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+  .header-content h1 {
+    margin: 0;
   }
-  
-  .logo {
-    height: 40px;
-    width: 40px;
-  }
-  
   
   .filter-container {
     margin-top: 10px;
@@ -204,3 +195,21 @@ html, body {
     }
   }
 
+  .language-switcher {
+    padding-top: 4px;
+    bottom: 10px;
+    left: 20px;
+    z-index: 1003;
+  }
+  
+  .language-switcher select {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 2px solid #E3C39D;
+    background: #071739;
+    color: #E3C39D;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+  }
+  

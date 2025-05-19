@@ -1,6 +1,10 @@
 [
   {
-    "name": "Samarqand yotoqxona",
+    "name": {
+      "en": "Samarkand Dormitory",
+      "ru": "Самаркандская общежитие",
+      "uz": "Samarqand yotoqxona"
+    },
     "lat": 39.642970,
     "lng": 66.962155,
     "images": [
@@ -8,8 +12,12 @@
       "samarqand/house1/sam2.jpg",
       "samarqand/house1/sam3.jpg"
     ],
-    "description": "Barcha qulayliklarga ega shinam yotoqxona: Wi-Fi mavjud, kir yuvish mashinasi, hammom va oshxona mavjud. Qulay yashash uchun ajoyib variant!",
-    "location": "Samarkand, Bulvar ",
+    "description": {
+      "en": "Cozy dormitory with all amenities: Wi-Fi, washing machine, bathroom, and kitchen available. A great option for comfortable living!",
+      "ru": "Уютное общежитие со всеми удобствами: Wi-Fi, стиральная машина, ванная и кухня. Отличный вариант для комфортного проживания!",
+      "uz": "Barcha qulayliklarga ega shinam yotoqxona: Wi-Fi mavjud, kir yuvish mashinasi, hammom va oshxona mavjud. Qulay yashash uchun ajoyib variant!"
+    },
+    "location": "Samarkand, Bulvar",
     "phone": "+998 77 077 70 01",
     "rooms": " ",
     "price": "550,000 сум",
@@ -17,7 +25,11 @@
     "id": "11111"
   },
   {
-    "name": "Samarqand kvartira",
+    "name": {
+      "en": "Samarkand Apartment",
+      "ru": "Самаркандская квартира",
+      "uz": "Samarqand kvartira"
+    },
     "lat": 39.661317,
     "lng": 66.912657,
     "images": [
@@ -26,16 +38,16 @@
       "samarqand/house2/sam3.jpg",
       "samarqand/house2/sam4.jpg"
     ],
-    "description": "Kvartirada bor: Telefon, Kabelli TV, Internet, Konditsioner, Balkon, Televizor, Oshxona, Muzlatkich, Kir yuvish mashinasi",
-    "location": "So'g'diyonada Obid samsasi qarshisida.",
+    "description": {
+      "en": "The apartment includes: Phone, Cable TV, Internet, Air Conditioning, Balcony, TV, Kitchen, Refrigerator, Washing machine",
+      "ru": "В квартире есть: телефон, кабельное ТВ, интернет, кондиционер, балкон, телевизор, кухня, холодильник, стиральная машина",
+      "uz": "Kvartirada bor: Telefon, Kabelli TV, Internet, Konditsioner, Balkon, Televizor, Oshxona, Muzlatkich, Kir yuvish mashinasi"
+    },
+    "location": "Opposite Obid Samsa in So'g'diyona.",
     "phone": "+998 90 454 42 47",
     "rooms": "2",
     "price": "4 928 904 сум",
     "type": "living",
     "id": "11113"
   }
- 
-
-
- 
 ]

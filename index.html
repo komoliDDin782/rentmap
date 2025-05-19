@@ -13,10 +13,17 @@
   <!-- Header Section -->
   <header>
     <div class="header-content">
-      <img src="compass.svg" alt="Compass Icon" class="logo" />
       <h1>Students' Compass</h1> 
-
     </div>
+
+    <div class="language-switcher">
+      <select id="languageSelect">
+        <option value="uz">O‘zbek</option>
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+    
   </header>
 
   <!-- Map Container -->
@@ -31,10 +38,12 @@
       <div class="house-details">
         <h2 id="houseName"></h2>
         <p id="houseDescription"></p>
-        <p><strong>📍 Location:</strong><span id="houseLocation"> </span></p>
-        <p><strong>☎️ Phone:</strong><span id="housePhone"> </span></p>
-        <p><strong>🛏️ Rooms:</strong><span id="houseRooms"> </span></p>
-        <p><strong>💰 Price:</strong><span id="housePrice"> </span></p>
+        <p><strong id="labelLocation">📍 Location: </strong><span id="houseLocationValue"></span></p>
+        <p><strong id="labelPhone">☎️ Phone: </strong><span id="housePhoneValue"></span></p>
+        <p><strong id="labelRooms">🛏️ Rooms: </strong><span id="houseRoomsValue"></span></p>
+        <p><strong id="labelPrice">💰 Price: </strong><span id="housePriceValue"></span></p>
+        
+        
       </div>
     </div><br>
  

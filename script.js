@@ -24,6 +24,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let allHouses = [];
 const loading = document.getElementById('loading');
+let currentLanguage = 'uz'; // default language
 
 // Load house data from JSON
 fetch('houses.json')
@@ -48,13 +49,13 @@ function displayHouses(houses) {
 
 // Show house details in sidebar
 function showSidebar(house) {
-  // Fill in house details
-  document.getElementById('houseName').innerText = house.name;
-  document.getElementById('houseDescription').innerText = house.description;
-  document.getElementById('houseLocation').innerText = house.location;
-  document.getElementById('housePhone').innerText = house.phone;
-  document.getElementById('houseRooms').innerText = house.rooms;
-  document.getElementById('housePrice').innerText = house.price;
+  // Fill in house details in the current language (with fallback to 'en')
+  document.getElementById('houseName').innerText = house.name[currentLanguage] || house.name['en'];
+  document.getElementById('houseDescription').innerText = house.description[currentLanguage] || house.description['en'];
+  document.getElementById('houseLocationValue').innerText = house.location;
+  document.getElementById('housePhoneValue').innerText = house.phone;
+  document.getElementById('houseRoomsValue').innerText = house.rooms;
+  document.getElementById('housePriceValue').innerText = house.price;
 
   // Load images
   const gallery = document.getElementById('imageGallery');
@@ -62,7 +63,7 @@ function showSidebar(house) {
   house.images.forEach(src => {
     const img = document.createElement('img');
     img.src = src;
-    img.alt = house.name;
+    img.alt = house.name[currentLanguage] || house.name['en'];
     gallery.appendChild(img);
   });
 
@@ -85,3 +86,54 @@ map.on('click', () => {
     document.getElementById('map').classList.remove('full-height');
   }
 });
+
+// Translations for labels
+const translations = {
+  en: {
+    location: "📍 Location: ",
+    phone: "☎️ Phone: ",
+    rooms: "🛏️ Rooms: ",
+    price: "💰 Price: "
+  },
+  ru: {
+    location: "📍 Адрес: ",
+    phone: "☎️ Телефон: ",
+    rooms: "🛏️ Комнаты: ",
+    price: "💰 Цена: "
+  },
+  uz: {
+    location: "📍 Joylashuv: ",
+    phone: "☎️ Telefon: ",
+    rooms: "🛏️ Xonalar: ",
+    price: "💰 Narxi: "
+  }
+};
+
+const languageSelect = document.getElementById('languageSelect');
+
+languageSelect.addEventListener('change', (e) => {
+  currentLanguage = e.target.value;
+  updateLabels(currentLanguage);
+  
+  // If sidebar is visible and a house is selected, update its content in the new language
+  const sidebarVisible = !document.getElementById('sidebar').classList.contains('hidden');
+  if (sidebarVisible && allHouses.length) {
+    // Find the currently shown house by matching the houseName
+    // Safer way: store currently shown house globally (optional)
+    // Here: just re-show the sidebar with the last clicked house if stored
+    // For now, let's do nothing or you can implement storing last house if needed
+  }
+});
+
+// Initialize labels to English by default
+updateLabels(currentLanguage);
+
+function updateLabels(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  document.getElementById('labelLocation').innerText = t.location;
+  document.getElementById('labelPhone').innerText = t.phone;
+  document.getElementById('labelRooms').innerText = t.rooms;
+  document.getElementById('labelPrice').innerText = t.price;
+}
