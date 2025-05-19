@@ -24,7 +24,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let allHouses = [];
 const loading = document.getElementById('loading');
-let currentLanguage = 'uz'; // default language
+const languageSelect = document.getElementById('languageSelect');
+
+// Load saved language or default to 'uz'
+let currentLanguage = localStorage.getItem('selectedLanguage') || 'uz';
+
+// Set the language selector dropdown to saved language
+languageSelect.value = currentLanguage;
+
+let lastShownHouse = null; // To remember which house is currently shown in sidebar
 
 // Load house data from JSON
 fetch('houses.json')
@@ -49,7 +57,8 @@ function displayHouses(houses) {
 
 // Show house details in sidebar
 function showSidebar(house) {
-  // Fill in house details in the current language (with fallback to 'en')
+  lastShownHouse = house;
+
   document.getElementById('houseName').innerText = house.name[currentLanguage] || house.name['en'];
   document.getElementById('houseDescription').innerText = house.description[currentLanguage] || house.description['en'];
   document.getElementById('houseLocationValue').innerText = house.location;
@@ -57,7 +66,6 @@ function showSidebar(house) {
   document.getElementById('houseRoomsValue').innerText = house.rooms;
   document.getElementById('housePriceValue').innerText = house.price;
 
-  // Load images
   const gallery = document.getElementById('imageGallery');
   gallery.innerHTML = "";
   house.images.forEach(src => {
@@ -67,7 +75,6 @@ function showSidebar(house) {
     gallery.appendChild(img);
   });
 
-  // Show sidebar and expand map height
   document.getElementById('sidebar').classList.remove('hidden');
   document.getElementById('map').classList.add('full-height');
 }
@@ -76,6 +83,7 @@ function showSidebar(house) {
 document.getElementById('closeBtn').addEventListener('click', () => {
   document.getElementById('sidebar').classList.add('hidden');
   document.getElementById('map').classList.remove('full-height');
+  lastShownHouse = null;
 });
 
 // Close sidebar on map click (but not on markers)
@@ -84,6 +92,7 @@ map.on('click', () => {
   if (!sidebar.classList.contains('hidden')) {
     sidebar.classList.add('hidden');
     document.getElementById('map').classList.remove('full-height');
+    lastShownHouse = null;
   }
 });
 
@@ -109,25 +118,7 @@ const translations = {
   }
 };
 
-const languageSelect = document.getElementById('languageSelect');
-
-languageSelect.addEventListener('change', (e) => {
-  currentLanguage = e.target.value;
-  updateLabels(currentLanguage);
-  
-  // If sidebar is visible and a house is selected, update its content in the new language
-  const sidebarVisible = !document.getElementById('sidebar').classList.contains('hidden');
-  if (sidebarVisible && allHouses.length) {
-    // Find the currently shown house by matching the houseName
-    // Safer way: store currently shown house globally (optional)
-    // Here: just re-show the sidebar with the last clicked house if stored
-    // For now, let's do nothing or you can implement storing last house if needed
-  }
-});
-
-// Initialize labels to English by default
-updateLabels(currentLanguage);
-
+// Update labels according to language
 function updateLabels(lang) {
   const t = translations[lang];
   if (!t) return;
@@ -137,3 +128,19 @@ function updateLabels(lang) {
   document.getElementById('labelRooms').innerText = t.rooms;
   document.getElementById('labelPrice').innerText = t.price;
 }
+
+// When user changes language selection
+languageSelect.addEventListener('change', (e) => {
+  currentLanguage = e.target.value;
+  localStorage.setItem('selectedLanguage', currentLanguage); // Save language selection
+
+  updateLabels(currentLanguage);
+
+  // If sidebar is open and a house is shown, update the sidebar with new language
+  if (lastShownHouse) {
+    showSidebar(lastShownHouse);
+  }
+});
+
+// Initialize labels and UI on page load
+updateLabels(currentLanguage);
