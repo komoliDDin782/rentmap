@@ -28,18 +28,27 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    background: #0f3485;
+    background: #071739;
     padding: 20px;
-    color: #ffffffd5;
+    color: #E3C39D;
     font-family: Arial, sans-serif;
     text-align: center;
     z-index: 1002; /* higher than the map and sidebar */
   }
   
   
-  .header-content h1 {
-    margin: 0;
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
+  
+  .logo {
+    height: 40px;
+    width: 40px;
+  }
+  
   
   .filter-container {
     margin-top: 10px;
