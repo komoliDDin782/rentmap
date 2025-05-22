@@ -108,6 +108,23 @@ html, body {
     overflow-x: auto;
     gap: 10px;
     margin-bottom: 1rem;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #071739 #e0e0e000;
+
+  }
+
+  @media (max-width: 768px) {
+    .image-gallery  {
+      scrollbar-width: none;            /* Firefox */
+    }
+  
+    .image-gallery ::-webkit-scrollbar {
+      display: none;                    /* Chrome, Safari */
+    }
+  
+    .image-gallery  {
+      -ms-overflow-style: none;         /* IE and Edge */
+    }
   }
   
   .image-gallery img {
@@ -212,4 +229,5 @@ html, body {
     outline: none;
     cursor: pointer;
   }
+
   
