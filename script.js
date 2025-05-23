@@ -142,5 +142,52 @@ languageSelect.addEventListener('change', (e) => {
   }
 });
 
-// Initialize labels and UI on page load
-updateLabels(currentLanguage);
+// Store markers by house id for easy toggle
+const houseMarkers = new Map();
+
+// When loading houses, save markers with IDs:
+function displayHouses(houses) {
+  houses.forEach(house => {
+    const marker = L.marker([house.lat, house.lng]).addTo(map);
+    marker.on('click', () => showSidebar(house));
+    houseMarkers.set(house.id, marker);  // Save marker by id
+  });
+}
+
+// Sidebar toggle button
+const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+const leftSidebar = document.getElementById('leftSidebar');
+const closeLeftSidebar = document.getElementById('closeLeftSidebar');
+
+toggleSidebarBtn.addEventListener('click', () => {
+  leftSidebar.classList.toggle('visible');
+});
+
+closeLeftSidebar.addEventListener('click', () => {
+  leftSidebar.classList.remove('visible');
+});
+
+// Activate / Deactivate buttons
+const houseIdInput = document.getElementById('houseIdInput');
+const activateBtn = document.getElementById('activateBtn');
+const deactivateBtn = document.getElementById('deactivateBtn');
+
+activateBtn.addEventListener('click', () => {
+  const id = houseIdInput.value.trim();
+  if (houseMarkers.has(id)) {
+    houseMarkers.get(id).addTo(map);
+    alert(`House ID ${id} activated.`);
+  } else {
+    alert('House ID not found.');
+  }
+});
+
+deactivateBtn.addEventListener('click', () => {
+  const id = houseIdInput.value.trim();
+  if (houseMarkers.has(id)) {
+    map.removeLayer(houseMarkers.get(id));
+    alert(`House ID ${id} deactivated.`);
+  } else {
+    alert('House ID not found.');
+  }
+});

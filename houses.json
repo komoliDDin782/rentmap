@@ -22,7 +22,8 @@
     "rooms": "18",
     "price": "550,000 сум",
     "type": "living",
-    "id": "11111"
+    "id": "11111",
+    "active": true
   },
   {
     "name": {
@@ -48,6 +49,7 @@
     "rooms": "2",
     "price": "4 928 904 сум",
     "type": "living",
-    "id": "11113"
+    "id": "11113",
+    "active": true
   }
 ]

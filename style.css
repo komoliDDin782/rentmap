@@ -230,4 +230,165 @@ html, body {
     cursor: pointer;
   }
 
-  
+/* Toggle Sidebar Button  remove*/
+.toggle-sidebar-btn {
+  position: fixed; /* fixed so it stays in viewport */
+  top: 60px; /* enough below typical header */
+  left: 20px;
+  z-index: 1004;
+  background-color: #071739;
+  color: #E3C39D;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 3px 8px rgba(7, 23, 57, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-sidebar-btn:hover {
+  background-color: #12305a;
+  color: #fff;
+}
+
+/* Sidebar Container */
+.left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fefefe;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  padding: 30px 25px 25px 25px;
+  z-index: 1101;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  border-right: 4px solid #071739;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.left-sidebar.visible {
+  transform: translateX(0);
+}
+
+/* Close Button */
+.left-sidebar .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.left-sidebar .close-btn:hover {
+  color: #071739;
+}
+
+/* Sidebar Header */
+.left-sidebar h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #071739;
+  user-select: none;
+}
+
+/* Input Field */
+#houseIdInput {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 2px solid #071739;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#houseIdInput:focus {
+  border-color: #e3c39d;
+  box-shadow: 0 0 8px #e3c39d;
+}
+
+/* Activate and Deactivate Buttons */
+#activateBtn,
+#deactivateBtn {
+  padding: 12px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(7, 23, 57, 0.25);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  user-select: none;
+  margin-top: 8px;
+  color: white;
+}
+
+#activateBtn {
+  background-color: #2a8f3a; /* green */
+}
+
+#activateBtn:hover {
+  background-color: #3cb84a;
+}
+
+#deactivateBtn {
+  background-color: #c43030; /* red */
+}
+
+#deactivateBtn:hover {
+  background-color: #e14c4c;
+}
+
+/* Responsive: smaller devices */
+@media (max-width: 768px) {
+  .left-sidebar {
+    width: 280px;
+    max-width: 80vw;
+    padding: 20px 20px 20px 20px;
+  }
+  #houseIdInput {
+    font-size: 0.95rem;
+  }
+  #activateBtn,
+  #deactivateBtn {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+  .toggle-sidebar-btn {
+    top: 70px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .left-sidebar {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 20px;
+  }
+  .toggle-sidebar-btn {
+    top: 65px;
+    left: 10px;
+    padding: 9px 12px;
+    font-size: 0.85rem;
+  }
+}
