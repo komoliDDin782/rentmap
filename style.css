@@ -305,7 +305,7 @@ html, body {
   margin: 0;
   font-weight: 700;
   font-size: 1.3rem;
-  color: #071739;
+  color: #07391254;
   user-select: none;
 }
 
@@ -391,4 +391,7 @@ html, body {
     padding: 9px 12px;
     font-size: 0.85rem;
   }
+}
+.leaflet-interactive.user-location-marker {
+  filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.6));
 }

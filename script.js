@@ -142,7 +142,7 @@ languageSelect.addEventListener('change', (e) => {
   }
 });
 
-// Store markers by house id for easy toggle
+// Store markers by house id for easy toggle removes
 const houseMarkers = new Map();
 
 // When loading houses, save markers with IDs:
@@ -190,4 +190,15 @@ deactivateBtn.addEventListener('click', () => {
   } else {
     alert('House ID not found.');
   }
+});
+map.on('locationfound', (e) => {
+  const userMarker = L.circleMarker(e.latlng, {
+    radius: 8, // Size in pixels (adjust for comfort)
+     // Border color
+    fillColor: '#134eccaf', // Full blue fill
+    fillOpacity: 1, // Fully filled
+    weight: 2, // Border thickness
+    opacity: 1, // Full border opacity
+    className: 'user-location-marker' // We'll use this to add shadow
+  }).addTo(map);
 });
