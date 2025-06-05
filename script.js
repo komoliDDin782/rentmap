@@ -202,3 +202,4 @@ map.on('locationfound', (e) => {
     className: 'user-location-marker' // We'll use this to add shadow
   }).addTo(map);
 });
+
