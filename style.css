@@ -395,3 +395,19 @@ html, body {
 .leaflet-interactive.user-location-marker {
   filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.6));
 }
+.header-row {
+  margin-top: 0%;
+  display: flex;
+  align-items: center; /* vertically align if needed */
+  gap: 5px;           /* space between h2s */
+}
+.header-row h2 {
+  font-size: 25px;
+  margin: 0;         /* removes default top/bottom spacing */
+  padding: 0;        /* just in case */
+  line-height: 1.2;  /* tighter line spacing */
+}
+
+#houseDistanceValue{
+  color: rgba(0, 0, 0, 0.411);
+}

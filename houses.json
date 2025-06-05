@@ -51,5 +51,27 @@
     "type": "living",
     "id": "11113",
     "active": true
+  },
+  {
+    "name": {
+      "en": "",
+      "ru": "",
+      "uz": ""
+    },
+    "lat": 40.7684652, 
+    "lng": 72.3637324,
+    "images": [
+     
+    ],
+    "description": {
+
+    },
+    "location": "",
+    "phone": "",
+    "rooms": "",
+    "price": "",
+    "type": "living",
+    "id": "11113",
+    "active": true
   }
 ]

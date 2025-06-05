@@ -203,3 +203,52 @@ map.on('locationfound', (e) => {
   }).addTo(map);
 });
 
+// === Distance calculation between user and house ===
+
+// Store user location globally
+let userLat, userLng;
+
+// When user's location is found
+map.on('locationfound', (e) => {
+  userLat = e.latlng.lat;
+  userLng = e.latlng.lng;
+
+  const userMarker = L.circleMarker(e.latlng, {
+    radius: 8,
+    fillColor: '#134eccaf',
+    fillOpacity: 1,
+    weight: 2,
+    opacity: 1,
+    className: 'user-location-marker'
+  }).addTo(map);
+});
+
+// Haversine formula to calculate distance in km
+function getDistanceFromLatLng(lat1, lng1, lat2, lng2) {
+  const R = 6371; // Radius of the Earth in km
+  const toRad = angle => angle * Math.PI / 180;
+
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+
+  const a = 
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+// Modify showSidebar to display distance
+const originalShowSidebar = showSidebar;
+showSidebar = function(house) {
+  originalShowSidebar(house); // Call existing sidebar logic
+
+  // Calculate and show distance
+  if (userLat !== undefined && userLng !== undefined) {
+    const dist = getDistanceFromLatLng(userLat, userLng, house.lat, house.lng);
+    const distEl = document.getElementById('houseDistanceValue');
+    if (distEl) distEl.innerText = `${dist.toFixed(2)} km`;
+  }
+};
