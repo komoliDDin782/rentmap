@@ -9,7 +9,7 @@ map.locate({
   maxZoom: 12,
   zoom: 10,
   enableHighAccuracy: true,
-  watch: false
+  watch: true
 });
 
 // Fallback location if geolocation fails
@@ -213,7 +213,13 @@ map.on('locationfound', (e) => {
   userLat = e.latlng.lat;
   userLng = e.latlng.lng;
 
-  const userMarker = L.circleMarker(e.latlng, {
+  // Remove previous user marker if any to avoid clutter:
+  if (window.userMarker) {
+    map.removeLayer(window.userMarker);
+  }
+
+  // Add updated user marker
+  window.userMarker = L.circleMarker(e.latlng, {
     radius: 8,
     fillColor: '#134eccaf',
     fillOpacity: 1,
@@ -221,7 +227,15 @@ map.on('locationfound', (e) => {
     opacity: 1,
     className: 'user-location-marker'
   }).addTo(map);
+
+  // If sidebar is open and showing a house, update distance display:
+  if (lastShownHouse) {
+    const dist = getDistanceFromLatLng(userLat, userLng, lastShownHouse.lat, lastShownHouse.lng);
+    const distEl = document.getElementById('houseDistanceValue');
+    if (distEl) distEl.innerText = `${dist.toFixed(2)} km`;
+  }
 });
+
 
 // Haversine formula to calculate distance in km
 function getDistanceFromLatLng(lat1, lng1, lat2, lng2) {
