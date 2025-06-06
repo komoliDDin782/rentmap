@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Students' Compass</title>
+  <link rel="website icon" type="svg" href="compass.svg">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <h1>Students' Compass</h1> 
+    </div>
+
+    <div class="language-switcher">
+      <select id="languageSelect">
+        <option value="uz">O‘zbek</option>
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+    
+  </header>
+
+
+
+
+
+
+
+
+  <!-- remove -->
+  <button id="toggleSidebarBtn" class="toggle-sidebar-btn">Status</button>
+
+  <!-- Sidebar for toggling houses -->
+  <div id="leftSidebar" class="left-sidebar hidden">
+    <button id="closeLeftSidebar" class="close-btn">✖</button>
+    <h3>Status</h3>
+    <input type="text" id="houseIdInput" placeholder="Enter House ID" />
+    <button id="activateBtn">Activate</button>
+    <button id="deactivateBtn">Deactivate</button>
+  </div>
+
+
+
+
+
+  
+
+
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+
+
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="hidden">
+    <button id="closeBtn">✖</button>
+    <div class="house-card">
+      <div id="imageGallery" class="image-gallery"></div><br>
+
+
+
+      <div class="house-details">
+
+        
+        <h2 id="houseName"></h2>
+        <p id="houseDescription"></p>
+        <p><strong id="labelLocation">📍 Location: </strong><span id="houseLocationValue"></span></p>
+        <p><strong id="labelPhone">☎️ Phone: </strong><span id="housePhoneValue"></span></p>
+        <p><strong id="labelRooms">🛏️ Rooms: </strong><span id="houseRoomsValue"></span></p>
+        <p><strong id="labelPrice">💰 Price: </strong><span id="housePriceValue"></span></p>
+        <span id="houseDistanceValue"></span>
+
+
+        
+      </div>
+    </div>
+    <br>
+ 
+
+     <hr />
+
+     <!--footer-->
+    <footer class="sidebar-footer">
+    
+      <p style="margin-top: 10px;">
+        📢 For advertisements: <br />
+        <strong>Raximov Komoliddin</strong><br />
+        📞 <a href="tel:+998937824040">+998 (93) 441-66-99 </a><br />
+        💬 <a href="https://t.me/Leader00000001" target="_blank">Telegram: @Leader00000001</a>
+      </p>
+    </footer>
+ 
+     
+  </div>
+
+
+
+    <!-- loading -->
+  <div id="loading" class="loading">Loading houses...</div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
