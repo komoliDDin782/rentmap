@@ -21,7 +21,6 @@
     "phone": "+998 77 077 70 01",
     "rooms": "18",
     "price": "550,000 сум",
-    "type": "living",
     "id": "11111",
     "active": true
   },
@@ -48,7 +47,6 @@
     "phone": "+998 90 454 42 47",
     "rooms": "2",
     "price": "4 928 904 сум",
-    "type": "living",
     "id": "11113",
     "active": true
   },
@@ -70,7 +68,6 @@
     "phone": "",
     "rooms": "",
     "price": "",
-    "type": "living",
     "id": "11113",
     "active": true
   }
