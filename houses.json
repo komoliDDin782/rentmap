@@ -8,9 +8,9 @@
     "lat": 39.642970,
     "lng": 66.962155,
     "images": [
-      "samarqand/house1/sam1.jpg",
-      "samarqand/house1/sam2.jpg",
-      "samarqand/house1/sam3.jpg"
+      "https://i.postimg.cc/VfKLvdxW/sam1.jpg",
+      "https://i.postimg.cc/PfNfwdhs/sam2.jpg",
+      "https://i.postimg.cc/S4dWCVqD/sam3.jpg"
     ],
     "description": {
       "en": "Cozy dormitory with all amenities: Wi-Fi, washing machine, bathroom, and kitchen available. A great option for comfortable living!",
@@ -34,10 +34,10 @@
     "lat": 39.661317,
     "lng": 66.912657,
     "images": [
-      "samarqand/house2/sam1.jpg",
-      "samarqand/house2/sam2.jpg",
-      "samarqand/house2/sam3.jpg",
-      "samarqand/house2/sam4.jpg"
+      "https://i.postimg.cc/1XxJK9gR/sam1.jpg",
+      "https://i.postimg.cc/Kv20k8SJ/sam2.jpg",
+      "https://i.postimg.cc/prDkGg8f/sam3.jpg",
+      "https://i.postimg.cc/c1YDL8jv/sam4.jpg"
     ],
     "description": {
       "en": "The apartment includes: Phone, Cable TV, Internet, Air Conditioning, Balcony, TV, Kitchen, Refrigerator, Washing machine",
